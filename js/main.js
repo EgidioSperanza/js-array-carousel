@@ -1,6 +1,7 @@
 const articleTitle = document.querySelector("article h1");
 const article = document.querySelector("article p");
 const articleImage = document.querySelector("article img.article_img");
+const articleDiv = document.querySelector("article");
 const prew = document.querySelector(".slide.prew");
 const next = document.querySelector(".slide.next");
 const prewTop = document.querySelector(".mobile_slide.top > .prew");
@@ -47,8 +48,10 @@ function towardNext(btn) {
     currentIndex++;
     if (currentIndex >= titles.length) {
       currentIndex = 0;
+      articleClass(articleDiv);
       displayArticle();
     }
+    articleClass(articleDiv);
     displayArticle();
   });
 }
@@ -58,8 +61,10 @@ function towardprew(btn) {
     currentIndex--;
     if (currentIndex < 0) {
       currentIndex = titles.length - 1;
+      articleClass(articleDiv);
       displayArticle();
     }
+    articleClass(articleDiv);
     displayArticle();
   });
 }
@@ -68,4 +73,8 @@ function displayArticle() {
   articleTitle.textContent = titles[currentIndex];
   article.textContent = articles[currentIndex];
   articleImage.src = images[currentIndex];
+}
+
+function articleClass(e){
+  (currentIndex % 2 === 0) ?  e.classList.remove("article_transition") : e.classList.add("article_transition");
 }
