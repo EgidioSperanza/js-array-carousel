@@ -48,6 +48,7 @@ section {
   border-left: 2px solid black;
   border-right: 2px solid black;
   background-color: white;
+  color:black;
   width: 1000px;
   min-height: 100%;
   margin: 0 auto;
@@ -55,6 +56,7 @@ section {
   justify-content: center;
   align-items: stretch;
   padding: 0 10px;
+  transition: all 3s;
 }
 
 article {
@@ -65,7 +67,7 @@ article {
 .article_transition{
   background-color: black;
   color: white;
-  transition: all 5s;
+  transition: all 3s;
 }
 
 .article_img {
@@ -86,6 +88,10 @@ article {
 
 .slide:hover {
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+section.article_transition > .slide:hover{
+  background-color: rgba(187, 187, 187, 0.2);
 }
 
 .mobile_slide {

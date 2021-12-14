@@ -1,7 +1,7 @@
 const articleTitle = document.querySelector("article h1");
 const article = document.querySelector("article p");
 const articleImage = document.querySelector("article img.article_img");
-const articleDiv = document.querySelector("article");
+const articleDiv = document.querySelector("section");
 const prew = document.querySelector(".slide.prew");
 const next = document.querySelector(".slide.next");
 const prewTop = document.querySelector(".mobile_slide.top > .prew");
