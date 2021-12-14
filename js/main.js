@@ -42,27 +42,27 @@ towardNext(prewTop);
 towardNext(nextBottom);
 towardNext(prewBottom);
 
-function towardNext(btn){
+function towardNext(btn) {
   btn.addEventListener("click", () => {
-  currentIndex++;
-  if (currentIndex >= titles.length) {
-    currentIndex = 0;
+    currentIndex++;
+    if (currentIndex >= titles.length) {
+      currentIndex = 0;
+      displayArticle();
+    }
     displayArticle();
-  }
-  displayArticle();
-});
-};
+  });
+}
 
-function towardprew(btn){
+function towardprew(btn) {
   btn.addEventListener("click", () => {
-  currentIndex--;
-  if (currentIndex < 0) {
-    currentIndex = titles.length - 1;
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = titles.length - 1;
+      displayArticle();
+    }
     displayArticle();
-  }
-  displayArticle();
-});
-};
+  });
+}
 
 function displayArticle() {
   articleTitle.textContent = titles[currentIndex];
