@@ -2,6 +2,7 @@ const articleTitle = document.querySelector("article h1");
 const article = document.querySelector("article p");
 const articleImage = document.querySelector("article img.article_img");
 const articleDiv = document.querySelector("section");
+const articleList = document.getElementById("list_article");
 const prew = document.querySelector(".slide.prew");
 const next = document.querySelector(".slide.next");
 const prewTop = document.querySelector(".mobile_slide.top > .prew");
@@ -36,7 +37,7 @@ let currentIndex = 0;
 displayArticle();
 
 towardNext(next);
-towardNext(prew);
+towardPrew(prew);
 
 towardNext(nextTop);
 towardNext(prewTop);
@@ -56,7 +57,7 @@ function towardNext(btn) {
   });
 }
 
-function towardprew(btn) {
+function towardPrew(btn) {
   btn.addEventListener("click", () => {
     currentIndex--;
     if (currentIndex < 0) {
@@ -73,10 +74,27 @@ function displayArticle() {
   articleTitle.textContent = titles[currentIndex];
   article.textContent = articles[currentIndex];
   articleImage.src = images[currentIndex];
+
+  displayArticleList();
 }
 
 function articleClass(e) {
   currentIndex % 2 === 0
     ? e.classList.remove("article_transition")
     : e.classList.add("article_transition");
+}
+
+function displayArticleList() {
+  articleList.innerHTML = "";
+  for (let i = 0; i < titles.length; i++) {
+    let listClass = "";
+    if (i === currentIndex) {
+      listClass = "active";
+    }
+    const myDiv = document.createElement("div");
+    articleList.append(myDiv);
+    if (listClass !== "") {
+      myDiv.classList.add(listClass);
+    }
+  }
 }
