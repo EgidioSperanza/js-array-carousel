@@ -75,6 +75,8 @@ function displayArticle() {
   articleImage.src = images[currentIndex];
 }
 
-function articleClass(e){
-  (currentIndex % 2 === 0) ?  e.classList.remove("article_transition") : e.classList.add("article_transition");
+function articleClass(e) {
+  currentIndex % 2 === 0
+    ? e.classList.remove("article_transition")
+    : e.classList.add("article_transition");
 }
