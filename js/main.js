@@ -76,6 +76,7 @@ function displayArticle() {
   articleImage.src = images[currentIndex];
 
   displayArticleList();
+  clickArticleList();
 }
 
 function articleClass(e) {
@@ -96,5 +97,16 @@ function displayArticleList() {
     if (listClass !== "") {
       myDiv.classList.add(listClass);
     }
+  }
+}
+
+function clickArticleList() {
+  for (let i = 0; i < articleList.childElementCount; i++) {
+    // console.log(articleList.children.item(i));//DEBUG
+    articleList.children.item(i).addEventListener("click", () => {
+      currentIndex = i;
+      articleClass(articleDiv);
+      displayArticle();
+    });
   }
 }
